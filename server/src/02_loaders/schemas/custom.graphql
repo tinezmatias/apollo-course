@@ -1,0 +1,14 @@
+scalar Date
+
+type User {
+  createdAt: Date
+}
+
+type Query {
+  getDate: Date
+  getUser: User
+}
+
+type Mutation {
+  setDate(today: Date): Date
+}

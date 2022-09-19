@@ -1,0 +1,28 @@
+type Book {
+  title: String
+  author: Author
+  oldField: String @deprecated(reason: "Use `newField`.")
+  newField: String
+}
+
+extend type Author {
+  books: [Book]
+}
+
+input CreateBookInput {
+  name: String!
+  author: CreateAuthorInput!
+}
+
+input BookFilterInput {
+  name: String!
+}
+
+# Root Operations Types
+type Query {
+  books(data: BookFilterInput!): [Book] # A list of Books
+}
+
+type Mutation {
+  createBook(data: CreateBookInput): Book
+}

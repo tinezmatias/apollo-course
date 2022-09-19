@@ -1,0 +1,13 @@
+type Movie {
+  duration: String
+}
+
+type Serie {
+  seasons: Int
+}
+
+union MediaResult = Serie | Movie
+
+type Query {
+  allMedia: [MediaResult] # This list can include both Book and Movie objects
+}
